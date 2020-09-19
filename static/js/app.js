@@ -4,7 +4,7 @@ function init() {
     var dropdown = d3.select("#selDataset")
 
     // Populating names for dropdown using names
-    d3.json("samples.json").then((data) => {
+    d3.json("../../data/samples.json").then((data) => {
         console.log(data);
         var namesid = data.names;
         console.log(namesid);
@@ -22,7 +22,7 @@ function init() {
 
 // Bar plot
 function barplot(select) {
-    d3.json("samples.json").then((data) => {
+    d3.json("../../data/samples.json").then((data) => {
         console.log(data);
     
     // Setting variables
@@ -65,7 +65,7 @@ function barplot(select) {
 
 // Bubble Chart
 function bubble(select) {
-    d3.json("samples.json").then((data) => {
+    d3.json("../../data/samples.json").then((data) => {
         console.log(data);
 
     // Setting variables
@@ -105,7 +105,7 @@ function bubble(select) {
 // Demographic Info Box
 function demoInfo(select) {
     var demo = d3.select("#sample-metadata")
-    d3.json("samples.json").then((data) => {
+    d3.json("../../data/samples.json").then((data) => {
         console.log(data);
     
     // Set variables
