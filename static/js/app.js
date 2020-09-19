@@ -56,28 +56,35 @@ function bubble(select) {
         console.log(data);
 
     var samplesData = data.samples;
-        console.log(samplesData);
+    var sampleReturn = samplesData[0];
     var filterSamples = samplesData.filter(object => object.id == select);
-        console.log(filterSamples);
-    var OTUid = samplesData.map(otuid => otuid.otu_ids);
-        console.log(OTUid);
-    var sampValue = samplesData.map(sampv => sampv.sample_values);
+        console.log(filterSamples)
+    var OTUid = sampleReturn.otu_ids;
+    var sampValue = sampleReturn.sample_values;
+    var otuLabels = sampleReturn.otu_labels;
 
-    var trace1 = {
+
+    var trace2 = {
         x: OTUid,
-        y: sliceOTU,
-        text: sliceLabel,
-        type: "bar",
-        orientation: "h"
+        y: sampValue,
+        text: otuLabels,
+        mode: 'markers',
+        marker: {
+            size: sampValue,
+            color:OTUid,
+
+        }
     };
-    var data = [trace1];
+    var data = [trace2];
     
     var layout = {
-        height: 500,
-        width: 400
+            title: 'Belly Button Bacteria Amount',
+            showlegend: false,
+            height: 600,
+            width: 1200
     }
 
-    Plotly.newPlot("bar", data, layout)
+    Plotly.newPlot("bubble", data, layout)
     });
 }
 
