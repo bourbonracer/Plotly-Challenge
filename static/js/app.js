@@ -1,5 +1,5 @@
 // Generate dropdown menu and base opening page data on first id
-function dropdownMenu() {
+function init() {
     // Select HTML element
     var dropdown = d3.select("#selDataset")
 
@@ -131,4 +131,4 @@ function optionChanged(updateSelect) {
     demoInfo(updateSelect)
 }
 
-dropdownMenu();
+init();
